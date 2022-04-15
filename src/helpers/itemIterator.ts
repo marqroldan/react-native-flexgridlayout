@@ -6,7 +6,7 @@ const ItemIterator = (
 ) => {
     const colHasDescription = !Array.isArray(data) && data?.data;
     const finalArray =
-        !Array.isArray(data) && data?.data
+        colHasDescription
             ? Array.isArray(data.data)
             ? data.data
             : [data.data]
