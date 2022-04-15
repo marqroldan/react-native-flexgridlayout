@@ -36,13 +36,13 @@ class FlexGridLayout extends React.Component<Props__FlexGridLayout> {
       (colHasDescription ? data.renderItem : null) ?? this.props.renderItem;
 
     const RowGap =
-      pRowGap ??
       (colHasDescription ? data.rowGap ?? data.gap : null) ??
+      pRowGap ??
       this.props.rowGap ??
       this.props.gap;
     const ColGap =
-      pColGap ??
       (colHasDescription ? data.colGap ?? data.gap : null) ??
+      pColGap ??
       this.props.colGap ??
       this.props.gap;
 
