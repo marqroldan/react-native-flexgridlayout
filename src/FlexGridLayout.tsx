@@ -66,9 +66,6 @@ class FlexGridLayout extends React.Component<Props__FlexGridLayout> {
 
       const rowKey = `${pRowKey ? `${pRowKey}__` : ''}row_${rowIndex}`;
 
-      if (rowIndex !== 0 && InnerRowGap) {
-        table.push(<Gap gap={InnerRowGap} key={`gap:${rowKey}`} />);
-      }
 
       if (Array.isArray(finalRowItem)) {
         const rowChildren = [];
@@ -81,57 +78,88 @@ class FlexGridLayout extends React.Component<Props__FlexGridLayout> {
             pColKey ? `${pColKey}__` : ''
           }${rowKey}__col_${colIndex}`;
 
-          if (colIndex !== 0 && InnerColGap) {
-            rowChildren.push(<Gap gap={InnerColGap} key={`gap:${colKey}`} />);
-          }
 
           if (Array.isArray(finalColItem)) {
-            rowChildren.push(
-              <Cell
-                style={colItem.cellStyle ?? Styles.columnFlex}
-                key={`cell:${colKey}`}>
-                {this.recursiveRender(
-                  colItem,
-                  rowKey,
-                  colKey,
-                  InnerRowGap,
-                  InnerColGap,
-                )}
-              </Cell>,
+            const child = this.recursiveRender(
+                colItem,
+                rowKey,
+                colKey,
+                InnerRowGap,
+                InnerColGap,
             );
+
+            if(child) {
+              if (colIndex !== 0 && InnerColGap) {
+                rowChildren.push(<Gap gap={InnerColGap} key={`gap:${colKey}`} />);
+              }
+
+              rowChildren.push(
+                  <Cell
+                      style={colItem.cellStyle ?? Styles.columnFlex}
+                      key={`cell:${colKey}`}>
+                    {child}
+                  </Cell>,
+              );
+            }
           } else {
-            rowChildren.push(
-              <Cell style={colItem?.cellStyle} key={`cell:${colKey}`}>
-                {InnerRenderItem?.(finalColItem) ?? null}
-              </Cell>,
-            );
+            const child = InnerRenderItem?.(finalColItem) ?? null;
+
+            if(child) {
+              if (colIndex !== 0 && InnerColGap) {
+                rowChildren.push(<Gap gap={InnerColGap} key={`gap:${colKey}`} />);
+              }
+
+              rowChildren.push(
+                  <Cell style={colItem?.cellStyle} key={`cell:${colKey}`}>
+                    {InnerRenderItem?.(finalColItem) ?? null}
+                  </Cell>,
+              );
+            }
           }
         }
 
-        table.push(
-          <InnerRenderRow
-            style={
-              pColKey || this.props.shouldFlex ? Styles.rowFlex : undefined
-            }
-            key={`row:${rowKey}`}>
-            {rowChildren}
-          </InnerRenderRow>,
-        );
+
+        if(rowChildren.length) {
+          if (rowIndex !== 0 && InnerRowGap) {
+            table.push(<Gap gap={InnerRowGap} key={`gap:${rowKey}`} />);
+          }
+
+          table.push(
+              <InnerRenderRow
+                  style={
+                    pColKey || this.props.shouldFlex ? Styles.rowFlex : undefined
+                  }
+                  key={`row:${rowKey}`}>
+                {rowChildren}
+              </InnerRenderRow>,
+          );
+        }
       } else {
-        table.push(
-          <InnerRenderRow
-            style={
-              pColKey || this.props.shouldFlex ? Styles.rowFlex : undefined
-            }
-            key={`row:${rowKey}`}>
-            <Cell style={rowItem.cellStyle}>
-              {InnerRenderItem?.(finalRowItem) ?? null}
-            </Cell>
-          </InnerRenderRow>,
-        );
+        const child = InnerRenderItem?.(finalRowItem) ?? null;
+
+        if(child) {
+          if (rowIndex !== 0 && InnerRowGap) {
+            table.push(<Gap gap={InnerRowGap} key={`gap:${rowKey}`} />);
+          }
+
+          table.push(
+              <InnerRenderRow
+                  style={
+                    pColKey || this.props.shouldFlex ? Styles.rowFlex : undefined
+                  }
+                  key={`row:${rowKey}`}>
+                <Cell style={rowItem.cellStyle}>
+                  {InnerRenderItem?.(finalRowItem) ?? null}
+                </Cell>
+              </InnerRenderRow>,
+          );
+        }
       }
     }
 
+    if(!table.length) {
+      return null;
+    }
     return (
       <RenderColumn
         style={
