@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/marqroldan/react-native-flexgridlayout/compare/v1.1.2...v1.2.0) (2022-04-15)
+
+
+### Features
+
+* Make forwarded gaps the second option ([792fe23](https://github.com/marqroldan/react-native-flexgridlayout/commit/792fe23942bdf5eb923159d7fc88f16c4a080304))
+
 ## [1.1.2](https://github.com/marqroldan/react-native-flexgridlayout/compare/v1.1.1...v1.1.2) (2022-04-15)
 
 
