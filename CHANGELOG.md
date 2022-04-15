@@ -1,3 +1,11 @@
+## [1.1.2](https://github.com/marqroldan/react-native-flexgridlayout/compare/v1.1.1...v1.1.2) (2022-04-15)
+
+
+### Bug Fixes
+
+* Bad recursive call ([0a13733](https://github.com/marqroldan/react-native-flexgridlayout/commit/0a137334518e560df129588f07f5ac518e1f443e))
+* ItemIterator | use variable instead ([3752bf6](https://github.com/marqroldan/react-native-flexgridlayout/commit/3752bf6753db87d350922afe23a5b345556621fe))
+
 ## [1.1.1](https://github.com/marqroldan/react-native-flexgridlayout/compare/v1.1.0...v1.1.1) (2022-04-15)
 
 
