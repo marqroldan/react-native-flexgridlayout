@@ -1,6 +1,6 @@
 {
   "name": "react-native-flexgridlayout",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Flex Grid Layout for React Native",
   "main": "lib/index.js",
   "scripts": {
