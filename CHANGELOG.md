@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/marqroldan/react-native-flexgridlayout/compare/v1.2.0...v1.3.0) (2022-04-15)
+
+
+### Features
+
+* Only add child and gaps if render item is not null ([68964d6](https://github.com/marqroldan/react-native-flexgridlayout/commit/68964d613c63da096b22e2b2ed7d0501706339df))
+
 # [1.2.0](https://github.com/marqroldan/react-native-flexgridlayout/compare/v1.1.2...v1.2.0) (2022-04-15)
 
 
