@@ -1,0 +1,19 @@
+{
+  "name": "react-native-flexgridlayout",
+  "version": "0.0.1",
+  "description": "Flex Grid Layout for React Native",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marqroldan/react-native-flexgridlayout.git"
+  },
+  "author": "Marq Roldan <hcmlroldan@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marqroldan/react-native-flexgridlayout/issues"
+  },
+  "homepage": "https://github.com/marqroldan/react-native-flexgridlayout#readme"
+}
