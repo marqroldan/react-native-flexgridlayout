@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/marqroldan/react-native-flexgridlayout/compare/v1.1.0...v1.1.1) (2022-04-15)
+
+
+### Bug Fixes
+
+* Export ItemIterator ([4b92e03](https://github.com/marqroldan/react-native-flexgridlayout/commit/4b92e0320c127ddfff7d04c5e39c44c08f08b54f))
+
 # [1.1.0](https://github.com/marqroldan/react-native-flexgridlayout/compare/v1.0.0...v1.1.0) (2022-04-15)
 
 
