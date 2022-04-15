@@ -26,7 +26,7 @@ const ItemIterator = (
                 const finalColItem =
                     !Array.isArray(colItem) && colItem?.data ? colItem.data : colItem;
                 if (Array.isArray(finalColItem)) {
-                    colHasDescription(colItem, callback);
+                    ItemIterator(colItem, callback);
                 } else {
                     callback(colItem);
                 }
