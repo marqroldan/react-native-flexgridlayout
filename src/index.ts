@@ -6,7 +6,7 @@ import Row from './Row';
 import FlexGridLayout from './FlexGridLayout';
 
 //Helpers
-import ItemIterator from "./helpers/itemIterator";
+import ItemIterator, {ItemIteratorSome} from "./helpers/itemIterator";
 
-export {Cell, Column, Gap, Row, FlexGridLayout, ItemIterator};
+export {Cell, Column, Gap, Row, FlexGridLayout, ItemIterator, ItemIteratorSome};
 export default FlexGridLayout;

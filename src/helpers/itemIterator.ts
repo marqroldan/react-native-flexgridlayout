@@ -3,6 +3,7 @@ import {Data} from '../types';
 const ItemIterator = (
     data: Data,
     callback: (item: string | null | undefined | any) => void,
+    terminatingLogic?: (...args: any) => boolean,
 ) => {
     const colHasDescription = !Array.isArray(data) && data?.data;
     const finalArray =
@@ -13,6 +14,8 @@ const ItemIterator = (
             : Array.isArray(data)
             ? data
             : [data];
+
+    let shouldTerminate = false;
 
     for (let rowIndex = 0; rowIndex < finalArray?.length ?? 0; rowIndex++) {
         const rowItem = finalArray[rowIndex];
@@ -26,15 +29,29 @@ const ItemIterator = (
                 const finalColItem =
                     !Array.isArray(colItem) && colItem?.data ? colItem.data : colItem;
                 if (Array.isArray(finalColItem)) {
-                    ItemIterator(colItem, callback);
+                    shouldTerminate = ItemIterator(colItem, callback);
                 } else {
                     callback(colItem);
+                    shouldTerminate = terminatingLogic?.(data, colItem) ?? false;
                 }
             }
         } else {
             callback(finalRowItem);
+            shouldTerminate = terminatingLogic?.(data, finalRowItem) ?? false;
+        }
+
+        if (shouldTerminate) {
+            break;
         }
     }
+
+    return shouldTerminate;
+};
+
+export const ItemIteratorSome = (data, callback) => {
+    return ItemIterator(data, callback, (_data, _colItem) => {
+        return callback(_colItem);
+    });
 };
 
 export default ItemIterator;
