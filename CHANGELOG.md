@@ -1,3 +1,15 @@
+# [1.4.0](https://github.com/marqroldan/react-native-flexgridlayout/compare/v1.3.0...v1.4.0) (2022-04-16)
+
+
+### Bug Fixes
+
+* Fixed types ([8d49fda](https://github.com/marqroldan/react-native-flexgridlayout/commit/8d49fda4e7f7e9d6ea8d0edd5d8a89cea6994790))
+
+
+### Features
+
+* Added way to terminate loop and a Some() variant ([1ad16b3](https://github.com/marqroldan/react-native-flexgridlayout/commit/1ad16b330b5eec02cea3de085c92caac6531c46c))
+
 # [1.3.0](https://github.com/marqroldan/react-native-flexgridlayout/compare/v1.2.0...v1.3.0) (2022-04-15)
 
 

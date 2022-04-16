@@ -33,4 +33,5 @@ export declare type Props__FlexGridLayout = Renders & Gaps & {
     data: Data;
     shouldFlex?: boolean;
 };
+export declare type Param__Callback = (item: string | null | undefined | any) => void | undefined | null | boolean;
 //# sourceMappingURL=types.d.ts.map
