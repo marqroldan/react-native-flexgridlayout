@@ -45,3 +45,5 @@ export type Props__FlexGridLayout = Renders &
     data: Data;
     shouldFlex?: boolean;
   };
+
+export type Param__Callback = (item: string | null | undefined | any) => void | undefined | null | boolean

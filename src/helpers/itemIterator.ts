@@ -1,10 +1,10 @@
-import {Data} from '../types';
+import {Data, Param__Callback} from '../types';
 
 const ItemIterator = (
     data: Data,
-    callback: (item: string | null | undefined | any) => void,
-    terminatingLogic?: (...args: any) => boolean,
-) => {
+    callback: Param__Callback,
+    terminatingLogic?: (_colItem: string | null | undefined | any) => boolean,
+): boolean => {
     const colHasDescription = !Array.isArray(data) && data?.data;
     const finalArray =
         colHasDescription
@@ -32,12 +32,12 @@ const ItemIterator = (
                     shouldTerminate = ItemIterator(colItem, callback);
                 } else {
                     callback(colItem);
-                    shouldTerminate = terminatingLogic?.(data, colItem) ?? false;
+                    shouldTerminate = terminatingLogic?.(colItem) ?? false;
                 }
             }
         } else {
             callback(finalRowItem);
-            shouldTerminate = terminatingLogic?.(data, finalRowItem) ?? false;
+            shouldTerminate = terminatingLogic?.(finalRowItem) ?? false;
         }
 
         if (shouldTerminate) {
@@ -48,9 +48,9 @@ const ItemIterator = (
     return shouldTerminate;
 };
 
-export const ItemIteratorSome = (data, callback) => {
-    return ItemIterator(data, callback, (_data, _colItem) => {
-        return callback(_colItem);
+export const ItemIteratorSome = (data: Data, callback: Param__Callback) => {
+    return ItemIterator(data, callback, (_colItem: string | null | undefined | any) => {
+        return callback(_colItem) ?? false;
     });
 };
 
