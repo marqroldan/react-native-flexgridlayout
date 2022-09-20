@@ -32,6 +32,8 @@ class FlexGridLayout extends React.Component<Props__FlexGridLayout> {
       (colHasDescription ? data.renderColumn : null) ??
       this.props.renderColumn ??
       Column;
+    const RenderCell = (colHasDescription ? data.renderCell : null) ?? this.props.renderCell ?? Cell;
+
     const RenderItem =
       (colHasDescription ? data.renderItem : null) ?? this.props.renderItem;
 
@@ -57,6 +59,8 @@ class FlexGridLayout extends React.Component<Props__FlexGridLayout> {
         RenderRow;
       const InnerRenderItem =
         (rowHasDescription ? rowItem.renderItem : null) ?? RenderItem;
+
+      const InnerRenderCell = (rowHasDescription ? rowItem.renderCell : null) ?? RenderCell;
 
       const InnerRowGap =
         (rowHasDescription ? rowItem.rowGap ?? rowItem.gap : null) ?? RowGap;
@@ -94,11 +98,11 @@ class FlexGridLayout extends React.Component<Props__FlexGridLayout> {
               }
 
               rowChildren.push(
-                  <Cell
+                  <InnerRenderCell
                       style={colItem.cellStyle ?? Styles.columnFlex}
                       key={`cell:${colKey}`}>
                     {child}
-                  </Cell>,
+                  </InnerRenderCell>,
               );
             }
           } else {
@@ -110,9 +114,9 @@ class FlexGridLayout extends React.Component<Props__FlexGridLayout> {
               }
 
               rowChildren.push(
-                  <Cell style={colItem?.cellStyle} key={`cell:${colKey}`}>
+                  <InnerRenderCell style={colItem?.cellStyle} key={`cell:${colKey}`}>
                     {InnerRenderItem?.(finalColItem) ?? null}
-                  </Cell>,
+                  </InnerRenderCell>,
               );
             }
           }
@@ -148,9 +152,9 @@ class FlexGridLayout extends React.Component<Props__FlexGridLayout> {
                     pColKey || this.props.shouldFlex ? Styles.rowFlex : undefined
                   }
                   key={`row:${rowKey}`}>
-                <Cell style={rowItem.cellStyle}>
+                <InnerRenderCell style={rowItem.cellStyle}>
                   {InnerRenderItem?.(finalRowItem) ?? null}
-                </Cell>
+                </InnerRenderCell>
               </InnerRenderRow>,
           );
         }
