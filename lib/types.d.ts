@@ -15,6 +15,7 @@ export declare type Props__Gap = {
 };
 export declare type RenderColumn = (props: Props__Column) => React.ReactNode | JSX.Element;
 export declare type RenderRow = (props: Props__Row) => React.ReactNode | JSX.Element;
+export declare type RenderCell = (props: Props__Cell) => React.ReactNode | JSX.Element;
 export declare type Gaps = {
     rowGap?: number;
     colGap?: number;
@@ -24,6 +25,7 @@ export declare type Renders = {
     renderItem: (item: any) => React.ReactNode | JSX.Element;
     renderColumn?: RenderColumn;
     renderRow?: RenderRow;
+    renderCell?: RenderCell;
 };
 export declare type Props__FlexGridLayoutBase = Renders & Gaps & {
     cellStyle?: ViewStyle;

@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/marqroldan/react-native-flexgridlayout/compare/v1.4.0...v1.5.0) (2022-09-20)
+
+
+### Features
+
+* Added support for custom render for Cell ([c33d0e0](https://github.com/marqroldan/react-native-flexgridlayout/commit/c33d0e01b4ca70a2d556aa1b6bf810e2df6e86ef))
+
 # [1.4.0](https://github.com/marqroldan/react-native-flexgridlayout/compare/v1.3.0...v1.4.0) (2022-04-16)
 
 
